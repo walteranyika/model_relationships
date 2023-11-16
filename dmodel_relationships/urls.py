@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from rest_framework.authtoken.views import obtain_auth_token
 
 from main import views
 
@@ -26,6 +27,7 @@ urlpatterns = [
     path('api/artists/<int:id>/delete', views.delete_artist, name="delete_artist"),
     path('api/artists/<int:id>/update', views.update_artist, name="update_artist"),
     path('api/artists/<int:id>/albums', views.albums_for_artist, name="albums_for_artist"),
+    path('api/auth', obtain_auth_token, name="get_auth_token"),
 
     path('admin/', admin.site.urls),
 ]
