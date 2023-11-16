@@ -17,7 +17,7 @@ class Artist(models.Model):
 class Album(models.Model):
     name = models.CharField(max_length=100)
     release_year = models.IntegerField()
-    artists = models.ManyToManyField(Artist)
+    artists = models.ManyToManyField(Artist, related_name="albums")
 
     def __str__(self):
         return f"Album {self.name}-{self.release_year}"
